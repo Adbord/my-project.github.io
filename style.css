@@ -1,0 +1,174 @@
+/* ===== Переменные темы ===== */
+:root {
+    --bg-gradient: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    --card-bg: #fff9f9;
+    --text-color: #333;
+    --text-muted: #444;
+    --header-bg: white;
+    --accent: #f06292;
+    --green: #d4e157;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --input-border: #f8bbd0;
+    --placeholder: #999;
+}
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #2b1b23 0%, #1a1015 100%);
+    --card-bg: #2a1f26;
+    --text-color: #f5e6ec;
+    --text-muted: #d4c0c9;
+    --header-bg: #2a1f26;
+    --shadow: 0 10px 30px rgba(0,0,0,0.4);
+    --input-border: #6b3c50;
+    --placeholder: #aaa;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: var(--text-color);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ===== Хедер ===== */
+.header {
+    width: 100%; max-width: 900px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--header-bg);
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    position: sticky; top: 10px; z-index: 1000;
+    transition: background 0.4s ease;
+}
+.logo { font-size: 24px; font-weight: 800; color: var(--accent); text-decoration: none; }
+.header-actions { display: flex; align-items: center; gap: 15px; }
+.theme-toggle { background: none; border: none; font-size: 22px; cursor: pointer; transition: transform 0.3s; }
+.theme-toggle:hover { transform: rotate(20deg) scale(1.1); }
+
+.nav { display: flex; gap: 20px; }
+.nav a { text-decoration: none; color: var(--text-color); font-weight: 600; font-size: 15px; transition: color 0.3s; position: relative; }
+.nav a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s; }
+.nav a:hover, .nav a.active { color: var(--accent); }
+.nav a:hover::after, .nav a.active::after { width: 100%; }
+
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.burger span { width: 25px; height: 3px; background: var(--accent); border-radius: 2px; transition: 0.3s; }
+
+/* ===== Общие блоки ===== */
+.card, .contact-section, .contacts, .hobby-section, .gallery-section, .cat-section, .about-section {
+    background: var(--card-bg);
+    width: 100%; max-width: 900px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+    transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    padding: 40px;
+}
+
+/* ===== Главная карточка ===== */
+.card { display: flex; overflow: hidden; position: relative; padding: 0; }
+.card:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(240, 98, 146, 0.25); }
+.content { padding: 40px; flex: 1; position: relative; z-index: 2; }
+.green-circle { position: absolute; top: 20px; left: -30px; width: 100px; height: 100px; background-color: var(--green); border-radius: 50%; opacity: 0.6; z-index: 1; animation: float 6s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+h1 { font-size: 36px; font-weight: 800; color: var(--text-color); }
+h2 { font-size: 28px; font-weight: 300; font-style: italic; color: var(--text-muted); margin-bottom: 20px; }
+p { font-size: 15px; line-height: 1.7; color: var(--text-muted); margin-bottom: 15px; }
+.quote-mark { color: var(--accent); font-size: 40px; vertical-align: middle; margin-right: 5px; font-family: Georgia, serif; }
+.badge { display: inline-block; background: #dcedc8; color: #555; padding: 8px 20px; border-radius: 20px; font-size: 14px; margin-top: 20px; border: 1px solid #c5e1a5; }
+.name-footer { background: var(--accent); padding: 20px 40px; font-size: 22px; font-weight: 700; color: white; text-align: right; margin-top: 30px; border-bottom-left-radius: 30px; border-top-right-radius: 30px; }
+
+.image-container { width: 40%; background: #8d6e63; overflow: hidden; }
+.image-container img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.image-container:hover img { transform: scale(1.05); }
+
+/* ===== Заголовки секций ===== */
+.section-title { font-size: 24px; font-weight: 700; color: var(--text-color); margin-bottom: 25px; text-align: center; font-style: normal; }
+
+/* ===== Хобби ===== */
+.hobby-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.hobby-card { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 1 / 1; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.hobby-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 30px rgba(240, 98, 146, 0.3); }
+.hobby-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.hobby-card:hover img { transform: scale(1.1); }
+.hobby-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; padding: 30px 15px 15px; font-weight: 600; font-size: 16px; text-align: center; }
+
+/* ===== Галерея ===== */
+.gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
+.gallery-item { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 15px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+.gallery-item:hover { transform: scale(1.03); box-shadow: 0 15px 30px rgba(240, 98, 146, 0.35); }
+
+/* ===== Секция с котом ===== */
+.cat-card { display: flex; align-items: center; gap: 30px; }
+.cat-image { flex: 0 0 40%; border-radius: 20px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+.cat-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+.cat-image:hover img { transform: scale(1.05); }
+.cat-text { flex: 1; }
+.cat-text h3 { font-size: 22px; color: var(--accent); margin-bottom: 15px; font-weight: 700; }
+
+/* ===== Форма ===== */
+.contact-form { display: flex; flex-direction: column; gap: 15px; max-width: 500px; margin: 0 auto; }
+.contact-form input, .contact-form textarea { padding: 15px 20px; border: 2px solid var(--input-border); border-radius: 15px; font-family: inherit; font-size: 15px; outline: none; background: transparent; color: var(--text-color); transition: border-color 0.3s, box-shadow 0.3s; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--placeholder); }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(240, 98, 146, 0.15); }
+.contact-form textarea { min-height: 120px; resize: vertical; }
+.contact-form button { padding: 15px 30px; background: var(--accent); color: white; border: none; border-radius: 15px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s, background 0.3s, box-shadow 0.3s; }
+.contact-form button:hover { background: #ec407a; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(240, 98, 146, 0.4); }
+#status { text-align: center; margin-top: 15px; font-weight: 600; color: #4caf50; }
+
+/* ===== Мессенджеры ===== */
+.messengers { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+.messenger-btn { padding: 12px 25px; border-radius: 15px; text-decoration: none; color: white; font-weight: 600; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; }
+.messenger-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+.telegram { background: #0088cc; } .whatsapp { background: #25D366; } .instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366); }
+
+/* ===== Лайтбокс ===== */
+.lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 2000; justify-content: center; align-items: center; padding: 20px; animation: fadeIn 0.3s ease; }
+.lightbox.active { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.lightbox img { max-width: 90%; max-height: 85%; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease; }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.lightbox-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; line-height: 1; transition: transform 0.2s; }
+.lightbox-close:hover { transform: scale(1.2) rotate(90deg); }
+
+/* ===== Анимация появления ===== */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== Адаптивность ===== */
+@media (max-width: 768px) {
+    body { padding: 15px; }
+    .burger { display: flex; }
+    .nav { position: absolute; top: 70px; right: 20px; background: var(--header-bg); flex-direction: column; padding: 20px; border-radius: 20px; box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: 0.3s; gap: 15px; min-width: 200px; }
+    .nav.active { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav a { font-size: 16px; padding: 5px 0; }
+    
+    .card { flex-direction: column; }
+    .image-container { width: 100%; height: 280px; order: -1; }
+    .content { padding: 25px; }
+    h1 { font-size: 28px; } h2 { font-size: 22px; } p { font-size: 14px; }
+    .name-footer { font-size: 18px; padding: 15px 25px; }
+    
+    .contact-section, .contacts, .hobby-section, .gallery-section, .cat-section, .about-section { padding: 25px; }
+    .section-title { font-size: 20px; }
+    .messenger-btn { width: 100%; text-align: center; }
+    
+    .hobby-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .hobby-label { font-size: 13px; padding: 20px 10px 10px; }
+    
+    .cat-card { flex-direction: column; gap: 20px; }
+    .cat-image { width: 100%; flex: none; }
+    .cat-text h3 { text-align: center; }
+}
+@media (max-width: 400px) { .hobby-grid { grid-template-columns: 1fr; } }

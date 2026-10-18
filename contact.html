@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Руслана</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">R.</a>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+            <button class="burger" id="burger"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="nav" id="nav">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О себе</a>
+            <a href="hobby.html">Хобби</a>
+            <a href="contact.html" class="active">Обратная связь</a>
+        </nav>
+    </header>
+
+    <section class="contact-section reveal">
+        <h2 class="section-title">Обратная связь</h2>
+        <form id="contactForm" class="contact-form">
+            <input type="text" id="name" placeholder="Ваше имя" required>
+            <input type="email" id="email" placeholder="Ваш Email" required>
+            <textarea id="message" placeholder="Ваше сообщение" required></textarea>
+            <button type="submit">Отправить</button>
+        </form>
+        <p id="status"></p>
+    </section>
+
+    <section class="contacts reveal">
+        <h2 class="section-title">Мои контакты</h2>
+        <div class="messengers">
+            <a href="https://t.me/ваш_ник" target="_blank" class="messenger-btn telegram">Telegram</a>
+            <a href="https://wa.me/ваш_номер" target="_blank" class="messenger-btn whatsapp">WhatsApp</a>
+            <a href="https://instagram.com/ваш_ник" target="_blank" class="messenger-btn instagram">Instagram</a>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

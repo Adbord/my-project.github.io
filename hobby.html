@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хобби — Руслана</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">R.</a>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+            <button class="burger" id="burger"><span></span><span></span><span></span></button>
+        </div>
+        <nav class="nav" id="nav">
+            <a href="index.html">Главная</a>
+            <a href="about.html">О себе</a>
+            <a href="hobby.html" class="active">Хобби</a>
+            <a href="contact.html">Обратная связь</a>
+        </nav>
+    </header>
+
+    <section class="hobby-section reveal">
+        <h2 class="section-title">Мои хобби</h2>
+        <div class="hobby-grid">
+            <div class="hobby-card"><img src="hobby1.jpg" alt="Культура"><div class="hobby-label">🌸 Японская культура</div></div>
+            <div class="hobby-card"><img src="hobby2.jpg" alt="Мода"><div class="hobby-label">👗 Мода и гяру</div></div>
+            <div class="hobby-card"><img src="hobby3.jpg" alt="Маникюр"><div class="hobby-label">💅 Маникюр</div></div>
+        </div>
+    </section>
+
+    <section class="gallery-section reveal">
+        <h2 class="section-title">Галерея работ</h2>
+        <div class="gallery-grid">
+            <img src="work1.jpg" alt="Работа 1" class="gallery-item">
+            <img src="work2.jpg" alt="Работа 2" class="gallery-item">
+            <img src="work3.jpg" alt="Работа 3" class="gallery-item">
+            <img src="work4.jpg" alt="Работа 4" class="gallery-item">
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="Просмотр" id="lightboxImg">
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
